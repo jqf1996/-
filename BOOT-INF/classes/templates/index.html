@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta content="telephone=no,email=no,address=no" name="format-detection" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <title>赢家资讯</title>
+    <style>#app_loading{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1;}.loading-box{font-size:14px;text-align:center;color:#fff;height:100%;}.loading-wrapper{position:relative;top:50%;transform:translateY(-50%);display:inline-block;width:50px;height:50px;border-radius:4px;padding:15px;background:rgba(58,58,58,0.9);}.loading-animate{animation:cirle-anim 1s linear infinite;}@-webkit-keyframes cirle-anim{100%{transform:rotate(360deg);}}@keyframes cirle-anim{100%{transform:rotate(360deg);}}</style>
+    <link th:each="resourceName : ${frontend_resources_css}" th:href="@{${frontend_basic.CDN} + ${resourceName}}" rel="stylesheet" />
+    <script type="text/javascript" th:inline="javascript">
+      APP_CONF = [[${frontend_basic}]];
+    </script>
+  </head>
+  <body ontouchstart="" onmouseover="">
+    <div id="app_loading"><div class="loading-box"><div class="loading-wrapper"><svg class="loading-animate" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="#fff" d="M16.019 29.966c-7.697 0-13.959-6.262-13.959-13.959s6.262-13.96
+              13.959-13.96c0.554 0 1.004 0.45 1.004 1.004s-0.45 1.004-1.004 1.004c-6.591 0-11.952 5.362-11.952 11.953s5.361 11.952 11.952 11.952 11.953-5.361 11.953-11.952c0-3.313-1.325-6.394-3.729-8.674-0.402-0.382-0.419-1.017-0.038-1.419s1.017-0.419 1.419-0.038c2.808 2.663 4.355 6.261 4.355 10.131
+              0 7.697-6.263 13.959-13.96 13.959z"></path></svg><div>加载中</div></div></div></div>
+    <div id="app"></div>
+    <script th:each="resourceName : ${frontend_resources_js}" type="text/javascript" th:src="@{${frontend_basic.CDN} + ${resourceName}}"></script>
+    <script type="text/javascript" th:if="${frontend_basic.DEBUG} ne false " th:src="@{${frontend_basic.CDN} + 'vconsole.min.js'}"></script>
+    <script type="text/javascript" th:if="${frontend_basic.DEBUG} eq true">window._bw_vConsole = new VConsole();</script>
+  </body>
+</html>

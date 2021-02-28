@@ -1,0 +1,21 @@
+app:
+  id: financial-news
+apollo:
+  bootstrap:
+    enabled: true
+    namespaces: application,NFD.consul.common,NFD.common.hystrix,NFD.news.db,NFD.news.redis,NFD.news.es,NFD.news.vip.columns,NFD.demeter.common
+
+server:
+  port: 8401
+  servlet:
+    context-path: /${app.id}
+spring:
+  application:
+    name: ${app.id}
+  cloud:
+    consul:
+      discovery:
+        port: ${server.port}
+
+
+

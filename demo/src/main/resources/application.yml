@@ -1,0 +1,29 @@
+
+server:
+  port: 8800
+spring:
+  datasource:
+    #    url: jdbc:mysql://l21.196.161.100:3306/xiaomi?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/news?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+  redis:
+    host: 121.196.161.100
+    password: JQF04026
+#  rabbitmq:
+#    host: 121.196.161.100
+#    port: 5672
+#    username: admin
+#    password: admin
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+
+logging:
+  config: demo/src/main/resources/logback.xml #    默认以模块名开始
+  level:
+    com.jang.Mishop.mapper: info
